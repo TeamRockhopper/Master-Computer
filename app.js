@@ -42,6 +42,7 @@ const verifyPostData = function (req, res, next) {
 
 // A middleware for validating GET requests from the master computer.
 const verifyGetData = function (req, res, next) {
+	console.log(req)
 	const requestSecret = req.header('secret');
 	if (requestSecret !== SECRET) {
 		return next(`Request header secret mismatch!`);
