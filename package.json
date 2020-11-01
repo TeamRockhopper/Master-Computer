@@ -1,0 +1,39 @@
+{
+  "name": "master-computer",
+  "version": "1.0.0",
+  "description": "A simple Express server modified from my boilerplate for use in my Minecraft OpenComputers network.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimTinkers/General-Express-Server.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "server"
+  ],
+  "author": "Tim Clancy",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/TimTinkers/General-Express-Server/issues"
+  },
+  "homepage": "https://github.com/TimTinkers/General-Express-Server#readme",
+  "standard": {
+    "globals": [
+      "$",
+      "THREE"
+    ]
+  },
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fs-extra": "^9.0.1",
+    "keyv": "^4.0.3",
+    "keyv-file": "^0.2.0",
+    "rcon-client": "^4.2.3"
+  }
+}

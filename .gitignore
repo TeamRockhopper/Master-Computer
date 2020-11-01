@@ -1,0 +1,6 @@
+# Ignore unwanted Node.js content.
+node_modules/
+package-lock.json
+
+# Ignore configured environment variables.
+.env
