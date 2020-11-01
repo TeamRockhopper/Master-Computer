@@ -33,7 +33,6 @@ const sleep = function (ms) {
 
 // A middleware for validating POST requests from the master computer.
 const verifyPostData = function (req, res, next) {
-	console.log(req.body);
 	const requestSecret = req.body.secret;
 	if (requestSecret !== SECRET) {
 		return next(`Request body secret mismatch!`);
