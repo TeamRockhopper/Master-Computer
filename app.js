@@ -29,11 +29,20 @@ const sleep = function (ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
 };
 
-// A middleware for validating requests from the master computer.
+// A middleware for validating POST requests from the master computer.
 const verifyPostData = function (req, res, next) {
 	const requestSecret = req.body.secret;
 	if (requestSecret !== SECRET) {
 		return next(`Request body secret mismatch!`);
+	}
+	return next();
+};
+
+// A middleware for validating GET requests from the master computer.
+const verifyGetData = function (req, res, next) {
+	const requestSecret = req.header('secret');
+	if (requestSecret !== SECRET) {
+		return next(`Request header secret mismatch!`);
 	}
 	return next();
 };
@@ -56,11 +65,11 @@ app.post('/put', verifyPostData, async function (req, res) {
 });
 
 // Allow verified sources to get data from the persistence layer.
-app.get('/get/:key', verifyPostData, async function (req, res) {
+app.get('/get/:key', verifyGetData, async function (req, res) {
 	const key = req.params.key;
 	try {
 		let value = await storage.get(key);
-	  res.status(200).send(value);
+	  res.status(200).send({ value: value });
 
 	// Catch any errors that might occur in storing data.
 	} catch (error) {
