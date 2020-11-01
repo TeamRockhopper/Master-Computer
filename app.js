@@ -9,7 +9,9 @@ const KeyvFile = require('keyv-file').KeyvFile
 
 // Set up our file-based key-value storage.
 const storage = new Keyv({
-  store: new KeyvFile()
+  store: new KeyvFile({
+		filename: `data-storage.json`
+	})
 });
 
 // Application setup.
