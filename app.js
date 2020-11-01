@@ -71,6 +71,7 @@ app.get('/get/:key', verifyGetData, async function (req, res) {
 	const key = req.params.key;
 	try {
 		let value = await storage.get(key);
+		console.log('send')
 	  res.status(200).send({ value: value });
 
 	// Catch any errors that might occur in storing data.
