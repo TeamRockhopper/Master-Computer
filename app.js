@@ -63,7 +63,7 @@ app.post('/put', verifyPostData, async function (req, res) {
 	}
 
 	// Tell master computer that we've completed the request.
-  res.status(200).send('Putting data succeeded.');
+  res.status(200).send({ message: 'Putting data succeeded.' });
 });
 
 // Allow verified sources to get data from the persistence layer.
