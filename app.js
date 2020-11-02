@@ -42,7 +42,6 @@ const verifyPostData = function (req, res, next) {
 
 // A middleware for validating GET requests from the master computer.
 const verifyGetData = function (req, res, next) {
-	console.log(req)
 	const requestSecret = req.header('secret');
 	if (requestSecret !== SECRET) {
 		return next(`Request header secret mismatch!`);
@@ -72,7 +71,6 @@ app.get('/get/:key', verifyGetData, async function (req, res) {
 	const key = req.params.key;
 	try {
 		let value = await storage.get(key);
-		console.log('send')
 	  res.status(200).send({ value: value });
 
 	// Catch any errors that might occur in storing data.
